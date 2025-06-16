@@ -15,7 +15,8 @@ class TiendaController extends Controller
 
   public function update(Request $request) {
     $t = current_tienda();
-
+    $t->nombre = $request->input('nombre');
+    $t->descripcion = $request->input('descripcion');
     $info = $t->info;
     $info['color_fondo'] = $request->input('color_fondo');
     // $info['color_texto'] = $request->input('color_texto');

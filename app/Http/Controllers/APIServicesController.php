@@ -10,6 +10,23 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class APIServicesController extends Controller
 {
+  public function dominio($dominio)
+  {
+    try {
+      $tienda = Tienda::where('dominio', $dominio)->firstOrFail();
+
+      return response()->json($tienda->to_raw(),200);
+      // return response()->json([
+      //   'tienda'    => $tienda->nombre,
+      //   'productos' => $data,
+      // ], 200);
+    } catch (\Exception $e) {
+      return response()->json([
+        'error' => 'Error interno del servidor',
+      ], 404);
+    }
+  }
+
   public function productos($dominio)
   {
     try {
@@ -35,7 +52,7 @@ class APIServicesController extends Controller
     } catch (\Exception $e) {
       return response()->json([
         'error' => 'Error interno del servidor',
-      ], 500);
+      ], 404);
     }
   }
 

@@ -114,4 +114,14 @@ class Tienda extends Model
   public function getColorTexto() {
     return $this->info['color_texto'] ?? "#FFFFFF";
   }
+
+  public function to_raw() {
+    return [
+      'dominio' => $this->dominio,
+      'nombre' => $this->nombre,
+      'color' => $this->getColorFondo(),
+      'logo_path' => asset($this->present()->getLogo()),
+      'icon_path' => asset($this->present()->getIcon())
+    ];
+  }
 }

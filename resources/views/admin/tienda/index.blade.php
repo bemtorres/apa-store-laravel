@@ -47,8 +47,15 @@
                 </div>
               </div>
 
+              <div class="col-md-12 mb-3">
+                <div class="form-group row">
+                  <label class="col-sm-12" for="nombre">Descripcion<small class="text-danger">*</small></label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{ $t->descripcion }}" required/>
+                  </div>
+                </div>
+              </div>
               <hr>
-
               <div class="col-md-12 mb-3">
                 <div class="form-group row">
                   <label class="col-sm-12" for="color_fondo">Color fondo<small class="text-danger">*</small></label>
