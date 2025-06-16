@@ -45,4 +45,4 @@ Route::get('tienda/{dominio}/producto/{codigo}', [TiendaWWWController::class, 'p
 
 
 Route::get('api/v1/{dominio}/productos', [APIServicesController::class, 'productos'])->name('api.services.productos.index');
-Route::get('api/v1/{dominio}/productos/{codigo}', [APIServicesController::class, 'productos'])->name('api.services.productos.show');
+Route::get('api/v1/{dominio}/productos/{codigo}', [APIServicesController::class, 'producto'])->name('api.services.productos.show');

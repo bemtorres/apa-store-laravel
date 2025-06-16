@@ -27,10 +27,11 @@ class APIServicesController extends Controller
         return $producto->to_raw();
       });
 
-      return response()->json([
-        'tienda'    => $tienda->nombre,
-        'productos' => $data,
-      ], 200);
+      return response()->json($data,200);
+      // return response()->json([
+      //   'tienda'    => $tienda->nombre,
+      //   'productos' => $data,
+      // ], 200);
     } catch (\Exception $e) {
       return response()->json([
         'error' => 'Error interno del servidor',
@@ -53,10 +54,11 @@ class APIServicesController extends Controller
         ->where('codigo', $codigo)
         ->firstOrFail();
 
-      return response()->json([
-        'tienda'   => $tienda->nombre,
-        'producto' => $p->to_raw(),
-      ], 200);
+      return response()->json($p->to_raw(), 200);
+      // return response()->json([
+      //   'tienda'   => $tienda->nombre,
+      //   'producto' => $p->to_raw(),
+      // ], 200);
     } catch (ModelNotFoundException $e) {
       return response()->json([
         'error' => 'Producto no encontrado',
