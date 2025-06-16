@@ -4,7 +4,7 @@ namespace App\Presenters;
 
 use App\Services\Imagen;
 
-class ArticuloPresenter extends Presenter
+class ProductoPresenter extends Presenter
 {
   private $folderImg = 'assets/tienda/';
   private $imgLogo = "pantalla.png";

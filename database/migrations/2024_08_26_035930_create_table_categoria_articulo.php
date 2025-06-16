@@ -27,7 +27,7 @@ return new class extends Migration
           $table->timestamps();
         });
 
-        Schema::create('articulo', function (Blueprint $table) {
+        Schema::create('producto', function (Blueprint $table) {
           $table->id();
           $table->string('idi')->nullable();
           $table->string('codigo')->nullable();
@@ -49,6 +49,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articulo');
+        Schema::dropIfExists('producto');
     }
 };

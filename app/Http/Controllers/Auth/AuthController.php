@@ -42,7 +42,7 @@ class AuthController extends Controller
       $u->nombre = $request->input('nombre');
       $u->apellido = $request->input('apellido');
       $u->correo = $correo;
-      $u->password = $request->input('password');
+      $u->password = hash('sha256', $request->password);
       $u->save();
 
       $t = new Tienda();

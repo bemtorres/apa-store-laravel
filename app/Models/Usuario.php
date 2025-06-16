@@ -39,8 +39,8 @@ class Usuario extends Authenticatable
       return $this->hasMany(Tienda::class, 'id_usuario');
   }
 
-  public function articulos() {
-      return $this->hasMany(Articulo::class, 'id_usuario');
+  public function productos() {
+      return $this->hasMany(Producto::class, 'id_usuario');
   }
 
   public function scopefindByCorreo($query, $correo){

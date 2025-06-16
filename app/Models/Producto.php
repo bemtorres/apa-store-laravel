@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
-use App\Presenters\ArticuloPresenter;
+use App\Presenters\ProductoPresenter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+// use Illuminate\Database\Eloquent\Casts\Attribute;
+
 
 
 class Producto extends Model
 {
   use HasFactory;
 
-  protected $table = 'articulo';
+  protected $table = 'producto';
 
   // Definir los campos que pueden ser asignados masivamente
   protected $fillable = [
@@ -37,5 +38,9 @@ class Producto extends Model
   public function tienda()
   {
     return $this->belongsTo(Tienda::class, 'id_tienda');
+  }
+
+  public function present(){
+    return new ProductoPresenter($this);
   }
 }

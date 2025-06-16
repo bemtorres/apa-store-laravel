@@ -31,9 +31,9 @@ class Tienda extends Model
         return $this->belongsTo(Usuario::class, 'id_usuario');
     }
 
-    public function articulos()
+    public function productos()
     {
-        return $this->hasMany(Articulo::class, 'id_tienda');
+        return $this->hasMany(Producto::class, 'id_tienda');
     }
 
   // protected function info(): Attribute {
