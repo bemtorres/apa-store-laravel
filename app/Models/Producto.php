@@ -56,7 +56,8 @@ class Producto extends Model
       'nombre' => $this->nombre,
       'descripcion' => $this->descripcion,
       'precio' => $this->precio,
-      'precio_text' => $this->getPrecio()
+      'precio_text' => $this->getPrecio(),
+      'url' => route('api.services.productos.show',[$this->tienda->dominio, $this->codigo])
     ];
   }
 }
