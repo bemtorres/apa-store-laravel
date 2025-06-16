@@ -19,7 +19,10 @@
     <nav class="bg-[var(--color-principal)] p-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <!-- Logo de la tienda -->
-            <img src="{{ asset($t->present()->getLogo()) }}" alt="Logo" class="h-10">
+            <div>
+              <img src="{{ asset($t->present()->getLogo()) }}" alt="Logo" class="h-10">
+              {{ $t->nombre }}
+            </div>
             <ul class="flex space-x-6 text-white font-semibold">
                 <li><a href="#">Carrito</a></li>
                 <li><a href="{{ route('tienda.index') }}">Tiendas</a></li>
