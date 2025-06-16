@@ -22,6 +22,32 @@
       font-family: 'Lato', 'Merriweather', sans-serif;
     }
 
+    .sidebar {
+      background: #ffcb77 !important;
+    }
+
+    .sidebar-nav .nav-link {
+      color: #372104 !important;
+      font-size: 14px;
+    }
+
+    .sidebar-nav .nav-link:hover {
+      background: #372104 !important;  /* Cambia el fondo cuando el cursor está encima */
+      color: #ffcb77 !important;        /* Cambia el texto a amarillo cuando hover */
+    }
+
+    .sidebar-nav .nav-link.active {
+      background: #1f1f1f;              /* Fondo oscuro cuando la opción está activa */
+      color: #ffcb77 !important;        /* Texto amarillo cuando está activo */
+    }
+
+    .nav-icon {
+      color: #372104 !important;
+    }
+
+    .nav-icon:hover {
+      background: #ffcb77 !important;   /* Fondo amarillo cuando el ícono está en hover */
+    }
 
   </style>
   {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
@@ -30,7 +56,7 @@
   @if (current_user()->getInfoStyle())
     <link rel="stylesheet" href="{{ asset(current_user()->getInfoStyle())}}">
   @endif
-  {{-- @include('layouts._css') --}}
+  @include('layouts._css')
   @stack('css')
 </head>
 <body>

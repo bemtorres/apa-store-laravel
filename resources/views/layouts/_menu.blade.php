@@ -23,23 +23,24 @@ $collapse = current_user()->getInfogSiderCollapse() ? 'hide' : '';
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link {{ activeTab(['/']) }} rounded-pill mx-3" href="{{ route('admin.producto.index') }}">
+      <a class="nav-link {{ activeTab(['admin/producto*']) }} rounded-pill mx-3" href="{{ route('admin.producto.index') }}">
         <i class="nav-icon fa-solid fa-list-alt"></i>
         Productos
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link {{ activeTab(['/']) }} rounded-pill mx-3" href="">
-        <i class="nav-icon fa-solid fa-list-alt"></i>
+      <a class="nav-link {{ activeTab(['admin/tienda']) }} rounded-pill mx-3" href="{{ route('admin.tienda.index') }}">
+        <i class="nav-icon fa-solid fa-store"></i>
         Tienda
       </a>
     </li>
-    {{-- <li class="nav-title">Configuración</li>
+
+    <hr>
     <li class="nav-item">
-      <a class="nav-link {{ activeTab(['/']) }} rounded-pill mx-3" href="">
-        <i class="nav-icon fa-solid fa-list-alt"></i>
-        Fichas
+      <a class="nav-link {{ activeTab(['/']) }} rounded-pill mx-3" href="{{ route('tienda.show', current_tienda()->dominio) }}">
+        <i class="nav-icon fas fa-globe-americas"></i>
+        MI TIENDA
       </a>
-    </li> --}}
+    </li>
   </ul>
 </div>

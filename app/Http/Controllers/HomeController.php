@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Producto;
-use App\Models\Sistema;
-use App\Services\ImportImage;
 use App\Services\Style;
-use Auth;
 use Illuminate\Http\Request;
 
 // use App\Http\Requests\AuthLoginRequest as AuthRequest;
@@ -30,19 +27,26 @@ class HomeController extends Controller
 
   public function perfilUpdate(Request $request) {
     $u = current_user();
-    if ($request->pass) {
-      $u->password = hash('sha256', $request->input('pass'));
-      $u->update();
-    }
+    $block = $request->input('block');
 
-    if ($request->style) {
-      $info = $u->info;
-      $info['style_key'] = $request->input('style');
-      $info['style'] = 'template/css/styles/'.$info['style_key'].'.css';
-      $u->info = $info;
+    if ($block == 'user') {
+      $u->nombre = $request->input('nombre');
+      $u->apellido = $request->input('apellido');
       $u->update();
+    } elseif ($block == 'pass') {
+      if ($request->pass) {
+        $u->password = hash('sha256', $request->input('pass'));
+        $u->update();
+      }
+    } elseif ($block == 'style') {
+      if ($request->style) {
+        $info = $u->info;
+        $info['style_key'] = $request->input('style');
+        $info['style'] = 'template/css/styles/'.$info['style_key'].'.css';
+        $u->info = $info;
+        $u->update();
+      }
     }
-
     return back()->with('success','Se ha actualizado');
   }
 

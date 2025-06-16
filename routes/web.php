@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\APIServicesController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\TiendaWWWController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'index'])->name('root');
@@ -27,6 +31,18 @@ Route::middleware('auth.user')->group( function () {
 
   Route::resource('admin/producto', ProductoController::class)->names('admin.producto');
 
+  Route::get('admin/tienda', [TiendaController::class, 'index'])->name('admin.tienda.index');
+  Route::put('admin/tienda', [TiendaController::class, 'update'])->name('admin.tienda.update');
+
   // INTERNO
   Route::put('collapse',[HomeController::class, 'collapse'])->name('view.collapse');
 });
+
+
+Route::get('tienda', [TiendaWWWController::class, 'index'])->name('tienda.index');
+Route::get('tienda/{dominio}', [TiendaWWWController::class, 'show'])->name('tienda.show');
+Route::get('tienda/{dominio}/producto/{codigo}', [TiendaWWWController::class, 'producto'])->name('tienda.producto.show');
+
+
+Route::get('api/v1/{dominio}/productos', [APIServicesController::class, 'productos'])->name('api.services.productos.index');
+Route::get('api/v1/{dominio}/productos/{codigo}', [APIServicesController::class, 'productos'])->name('api.services.productos.show');

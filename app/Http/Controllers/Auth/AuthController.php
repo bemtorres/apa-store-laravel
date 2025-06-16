@@ -19,6 +19,7 @@ class AuthController extends Controller
   }
 
   public function registrarStore(Request $request) {
+
     $clave = $request->input('clave');
     $tienda = $request->input('tienda');
     $dominio = strtolower($tienda);
@@ -53,7 +54,7 @@ class AuthController extends Controller
 
       return redirect()->route('root')->with('success','Felicidades nueva cuenta creada');
     }
-    return back()->with('danger','Error intente nuevamente');
+    return back()->with('danger','clave no válida');
   }
 
   public function login(Request $request){

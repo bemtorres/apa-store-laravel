@@ -28,6 +28,7 @@ class ProductoController extends Controller
 
   public function store(Request $request) {
     $t = current_tienda();
+
     $p = new Producto();
     $p->idi = time();
     $p->codigo = $request->input('codigo');
@@ -52,7 +53,13 @@ class ProductoController extends Controller
 
   public function update(Request $request, $idi) {
     $t = current_tienda();
-    $p = Producto::where('idi',$idi)->where('tenant_id', $t->id)->firstOrFail();
+    $p = Producto::where('idi',$idi)->where('id_tienda', $t->id)->firstOrFail();
+    // $request->validate([
+    //   'codigo' => 'required|string|max:255|unique:productos,codigo,' . $p->id . ',id,id_tienda,' . $t->id,
+    //   'nombre' => 'required|string|max:255',
+    //   'precio' => 'required|numeric|min:0',
+    //   'image'  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+    // ]);
     // $p->idi = time();
     $p->codigo = $request->input('codigo');
     $p->nombre = $request->input('nombre');

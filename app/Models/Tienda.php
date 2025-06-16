@@ -25,7 +25,16 @@ class Tienda extends Model
         'activo',
     ];
 
-    // Relación con Usuario
+    protected $casts = [
+      'info' => 'array',
+    ];
+    // protected function info(): Attribute {
+    //   return Attribute::make(
+    //       get: fn ($value) => json_decode($value, true),
+    //       set: fn ($value) => json_encode($value),
+    //   );
+    // }
+
     public function usuario()
     {
         return $this->belongsTo(Usuario::class, 'id_usuario');
@@ -97,4 +106,12 @@ class Tienda extends Model
   // public function getLoginPostulante() {
   //   return $this->config['login_postulante'] ?? true;
   // }
+
+  public function getColorFondo() {
+    return $this->info['color_fondo'] ?? "#372104";
+  }
+
+  public function getColorTexto() {
+    return $this->info['color_texto'] ?? "#FFFFFF";
+  }
 }

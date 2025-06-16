@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Presenters\ProductoPresenter;
+use App\Services\Currency;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -42,5 +43,20 @@ class Producto extends Model
 
   public function present(){
     return new ProductoPresenter($this);
+  }
+
+  public function getPrecio() {
+    return (new Currency())->getConvert($this->precio);
+  }
+
+  public function to_raw() {
+    return [
+      'id' => $this->idi,
+      'codigo' => $this->codigo,
+      'nombre' => $this->nombre,
+      'descripcion' => $this->descripcion,
+      'precio' => $this->precio,
+      'precio_text' => $this->getPrecio()
+    ];
   }
 }

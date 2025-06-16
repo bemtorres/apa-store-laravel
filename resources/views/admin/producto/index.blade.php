@@ -7,8 +7,8 @@
 @endpush
 @section('content')
 <div class="container-fluid">
-  <h1 class="h3 mb-2 text-gray-800">Usuarios</h1>
-  @include('admin.usuario._tabs')
+  <h1 class="h3 mb-2 text-gray-800">Productos</h1>
+  @include('admin.producto._tabs')
   <div class="card shadow mb-4">
     <div class="card-body">
       <div class="table-responsive">
@@ -16,30 +16,25 @@
           <thead>
             <tr>
               <th>#</th>
-              <th></th>
+              <th>CODIGO</th>
               <th>NOMBRE</th>
               <th>PRECIO</th>
-              <th></th>
+              {{-- <th></th> --}}
             </tr>
           </thead>
           <tbody>
             @foreach ($productos as $p)
             <tr>
-              <td><img src="{{ asset($p->getPhoto()) }}" alt="" style="width:30px;"><small class="ms-2">{{ $p->idi }}</small></td>
-              <td><a href="{{ route('admin.producto.show',$p->idi) }}">{{ $p->nombre }}</a></td>
-              <td>{{ $p->nombre }}</td>
-              <td>{{ $p->precio }}</td>
-              <td></td>
-              {{-- <td>
-                @if ($u->tipo_usuario == 1)
-                  <i class="fa-solid fa-user-shield"></i>
-                @elseif ($u->tipo_usuario == 2)
-                  <i class="fa-solid fa-user text-primary"></i>
-                @endif
-                @if ($u->inte_google_id())
-                  <span class="ms-2"><i class="fa-brands fa-google text-danger"></i></span>
-                @endif
-              </td> --}}
+              <td>
+                <div class="c-avatar">
+                  <img src="{{ asset($p->present()->getPhoto()) }}" class="c-avatar-img" width="100px" alt="Imagen producto">
+                </div>
+              </td>
+              <td>{{ $p->codigo }}</td>
+              <td><a href="{{ route('admin.producto.edit',$p->idi) }}">{{ $p->nombre }}</a></td>
+              {{-- <td>{{ $p->nombre }}</td> --}}
+              <td>$ {{ $p->getPrecio() }}</td>
+
             </tr>
             @endforeach
           </tbody>
