@@ -1,0 +1,22 @@
+body {
+  background: #f4e5ff; /* Morado pastel */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #3a2f4d;
+}
+
+.sidebar {
+  background: #8e44ad !important; /* Morado profundo */
+}
+
+.sidebar-nav .nav-link {
+  color: #ecf0f1;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #9b59b6 !important; /* Morado más claro */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #6c3483; /* Morado oscuro */
+  color: #fff;
+}

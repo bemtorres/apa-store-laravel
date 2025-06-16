@@ -1,0 +1,22 @@
+body {
+  background: #0d0d0d; /* Fondo negro */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #0ff; /* Verde neón */
+}
+
+.sidebar {
+  background: #002b36 !important; /* Azul oscuro */
+}
+
+.sidebar-nav .nav-link {
+  color: #0ff; /* Verde neón */
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #004d40 !important; /* Verde oscuro */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #00ff99; /* Verde neón más claro */
+  color: #000;
+}

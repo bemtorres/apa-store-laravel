@@ -1,0 +1,22 @@
+body {
+  background: #ebf5fb; /* Azul muy claro */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #2c3e50;
+}
+
+.sidebar {
+  background: #2980b9 !important; /* Azul corporativo */
+}
+
+.sidebar-nav .nav-link {
+  color: #ecf0f1;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #3498db !important; /* Azul claro */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #1a5276; /* Azul más oscuro */
+  color: #fff;
+}

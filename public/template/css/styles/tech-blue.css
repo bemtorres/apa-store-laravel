@@ -1,0 +1,22 @@
+body {
+  background: #121f3d; /* Azul muy oscuro */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #00d8ff; /* Azul neón */
+}
+
+.sidebar {
+  background: #142850 !important; /* Azul marino */
+}
+
+.sidebar-nav .nav-link {
+  color: #00d8ff;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #1e3a8a !important; /* Azul más fuerte */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #00aaff; /* Azul brillante */
+  color: #fff;
+}

@@ -1,0 +1,22 @@
+body {
+  background: #eafaf1; /* Verde muy claro */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #2d3e3f;
+}
+
+.sidebar {
+  background: #2ecc71 !important; /* Verde esmeralda */
+}
+
+.sidebar-nav .nav-link {
+  color: #ecf0f1;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #27ae60 !important; /* Verde oscuro */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #1e8449; /* Verde más intenso */
+  color: #fff;
+}

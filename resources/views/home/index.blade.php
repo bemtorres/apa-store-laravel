@@ -1,0 +1,77 @@
+@extends('layouts.app')
+@section('css')
+
+@endsection
+@section('content')
+<div class="row">
+
+
+  <div class="col-md-12 row text-center">
+    <div class="col-12 col-md-6">
+      <div class="card shadow mb-3">
+        <div class="card-body px-3">
+          <h2 class="display-6 fw-bold">Hola {{ current_user()->nombre }}! 🖐️</h2>
+          <h5 class="card-title">Te damos la bienvenida a <strong>{{ current_tienda()->nombre }}!</strong></h5>
+
+          <div class="">
+            <div class="col-lg-12 mx-auto">
+              <p class="lead mb-4">
+              </p>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="row mb-3">
+        <div class="col-6">
+          <div class="card rounded bg-primary text-white">
+            <div class="card-body">
+              <div class="fs-4 fw-semibold" id="count-docs"></div>
+              <div><strong>Total de productos</strong></div>
+            </div>
+          </div>
+        </div>
+        {{-- <div class="col-6">
+          <div class="card rounded bg-white text-tienda-primary">
+            <div class="card-body">
+              <div class="fs-4 fw-semibold" id="count-pages">asdasdasd</div>
+              <div><strong>Total de páginas calculadas</strong></div>
+            </div>
+          </div>
+        </div> --}}
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+@push('js')
+<script>
+  function animateValue(id, end, duration = 1000) {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const start = 0;
+    const range = end - start;
+    const startTime = performance.now();
+
+    function step(currentTime) {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const value = Math.floor(progress * range + start);
+      el.textContent = value.toLocaleString('es-CL');
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    animateValue('count-docs',{{ $productos_count }}, 1200);
+    // animateValue('count-pages',1000, 1200);
+  });
+</script>
+@endpush

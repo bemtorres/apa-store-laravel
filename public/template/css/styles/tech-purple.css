@@ -1,0 +1,22 @@
+body {
+  background: #1a0033; /* Morado oscuro */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #ff00ff; /* Fucsia neón */
+}
+
+.sidebar {
+  background: #4a0072 !important; /* Morado intenso */
+}
+
+.sidebar-nav .nav-link {
+  color: #ff00ff;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #7000b3 !important; /* Morado más brillante */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #ff33cc; /* Fucsia más suave */
+  color: #fff;
+}

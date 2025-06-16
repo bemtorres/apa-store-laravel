@@ -1,0 +1,118 @@
+body {
+  background: #f5f5f5; /* Gris claro, muy característico de Google */
+  font-family: 'Roboto', sans-serif; /* Fuente de Google */
+  color: #333; /* Color de texto estándar */
+}
+
+.sidebar {
+  background: #ffffff !important; /* Blanco puro */
+  border-right: 2px solid #e0e0e0; /* Límite suave entre la barra y el contenido */
+}
+
+.sidebar-nav .nav-link {
+  color: #252525 !important; /* Gris suave para los enlaces */
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #e8f0fe !important; /* Azul muy claro de Google al pasar el ratón */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #4285f4; /* Azul de Google para el enlace activo */
+  color: #fff; /* Texto blanco para el enlace activo */
+  font-weight: bold; /* Texto en negrita para el enlace activo */
+}
+
+.nav-icon {
+  color: #5f6368 !important; /* Gris suave para los iconos */
+}
+
+.nav-title {
+  color: #5f6368 !important; /* Gris suave para el título de la barra lateral */
+}
+
+.sidebar-nav .nav-link {
+  font-size: 14px; /* Tamaño de fuente más pequeño para enlaces */
+}
+
+/* Ajustes adicionales para mejorar la visualización */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para tarjetas */
+}
+
+.card-header {
+  background: #4285f4; /* Azul Google para los encabezados de tarjeta */
+  color: #ffffff; /* Texto blanco */
+}
+
+.card-body {
+  color: #333; /* Color de texto en cuerpo de tarjeta */
+}
+
+.btn-primary {
+  background-color: #4285f4; /* Azul Google para los botones */
+  border-color: #4285f4;
+}
+
+.btn-primary:hover {
+  background-color: #357ae8; /* Azul ligeramente más oscuro para hover */
+  border-color: #357ae8;
+}
+
+.navbar {
+  background-color: #ffffff; /* Barra de navegación blanca */
+  color: #333; /* Texto oscuro */
+  border-bottom: 1px solid #e0e0e0; /* Línea sutil debajo de la navbar */
+}
+
+.navbar a {
+  color: #5f6368; /* Gris suave para los enlaces */
+}
+
+.navbar a:hover {
+  color: #4285f4; /* Azul de Google al pasar el ratón */
+}
+
+/* Ajustes de la tabla para que se vea limpia y profesional */
+.table {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.table th, .table td {
+  color: #333;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9; /* Fila de la tabla con fondo gris claro */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffffff; /* Fondo blanco para las filas pares */
+}
+
+/* Ajustes adicionales para formularios y botones */
+.form-control {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.form-control:focus {
+  border-color: #4285f4; /* Azul de Google para los campos de formulario en foco */
+  box-shadow: 0 0 0 0.25rem rgba(66, 133, 244, 0.25);
+}
+
+.btn-outline-primary {
+  color: #4285f4;
+  border-color: #4285f4;
+}
+
+.btn-outline-primary:hover {
+  background-color: #4285f4;
+  color: #ffffff;
+  border-color: #4285f4;
+}

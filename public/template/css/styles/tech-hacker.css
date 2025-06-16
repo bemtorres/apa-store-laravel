@@ -1,0 +1,22 @@
+body {
+  background: #000; /* Fondo negro total */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #ff4444; /* Rojo brillante */
+}
+
+.sidebar {
+  background: #330000 !important; /* Rojo oscuro */
+}
+
+.sidebar-nav .nav-link {
+  color: #ff4444;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #660000 !important; /* Rojo más fuerte */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #ff0000; /* Rojo intenso */
+  color: #fff;
+}

@@ -1,0 +1,22 @@
+body {
+  background: #181818; /* Gris casi negro */
+  font-family: 'Lato', 'Merriweather', sans-serif;
+  color: #e0e0e0;
+}
+
+.sidebar {
+  background: #282828 !important; /* Gris oscuro */
+}
+
+.sidebar-nav .nav-link {
+  color: #b3b3b3;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #383838 !important; /* Un gris más claro */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #ff5722; /* Naranja vibrante */
+  color: #fff;
+}

@@ -1,0 +1,113 @@
+body {
+  background: #f3f3f3; /* Gris muy claro, típico de Microsoft */
+  font-family: 'Segoe UI', sans-serif; /* Fuente de Microsoft */
+  color: #262626; /* Gris oscuro para el texto */
+}
+
+.sidebar {
+  background: #2b2b2b !important; /* Gris oscuro, característico de la interfaz de Microsoft */
+}
+
+.sidebar-nav .nav-link {
+  color: #d6d6d6; /* Gris claro para los enlaces */
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #3b3b3b !important; /* Gris más claro para el hover */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #0078d4; /* Azul Microsoft */
+  color: #fff; /* Blanco para el texto activo */
+  font-weight: bold; /* Texto en negrita para el enlace activo */
+}
+
+.nav-icon {
+  color: #d6d6d6 !important; /* Gris claro para los iconos */
+}
+
+.sidebar-nav .nav-link {
+  font-size: 14px; /* Tamaño de fuente más pequeño para enlaces */
+}
+
+/* Ajustes adicionales para mejorar la visualización */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para tarjetas */
+}
+
+.card-header {
+  background: #0078d4; /* Azul Microsoft para los encabezados de tarjeta */
+  color: #ffffff; /* Texto blanco */
+}
+
+.card-body {
+  color: #333; /* Color de texto en cuerpo de tarjeta */
+}
+
+.btn-primary {
+  background-color: #0078d4; /* Azul Microsoft para los botones */
+  border-color: #0078d4;
+}
+
+.btn-primary:hover {
+  background-color: #0063a1; /* Azul ligeramente más oscuro para hover */
+  border-color: #0063a1;
+}
+
+.navbar {
+  background-color: #ffffff; /* Barra de navegación blanca */
+  color: #333; /* Texto oscuro */
+  border-bottom: 1px solid #e0e0e0; /* Línea sutil debajo de la navbar */
+}
+
+.navbar a {
+  color: #5f6368; /* Gris suave para los enlaces */
+}
+
+.navbar a:hover {
+  color: #0078d4; /* Azul de Microsoft al pasar el ratón */
+}
+
+/* Ajustes de la tabla para que se vea limpia y profesional */
+.table {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.table th, .table td {
+  color: #333;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9; /* Fila de la tabla con fondo gris claro */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffffff; /* Fondo blanco para las filas pares */
+}
+
+/* Ajustes adicionales para formularios y botones */
+.form-control {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.form-control:focus {
+  border-color: #0078d4; /* Azul de Microsoft para los campos de formulario en foco */
+  box-shadow: 0 0 0 0.25rem rgba(0, 120, 212, 0.25);
+}
+
+.btn-outline-primary {
+  color: #0078d4;
+  border-color: #0078d4;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0078d4;
+  color: #ffffff;
+  border-color: #0078d4;
+}

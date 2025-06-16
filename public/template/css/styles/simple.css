@@ -1,0 +1,17 @@
+body {
+  background: #000;
+  font-family: 'Lato', 'Merriweather', sans-serif;
+}
+
+.sidebar {
+  background: #2e2e2e !important;
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #5a5a5a !important;
+}
+
+.sidebar-nav .nav-link.active {
+  background: #5a5a5a;
+  /* color: #000; */
+}

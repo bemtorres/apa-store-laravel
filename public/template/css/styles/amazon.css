@@ -1,0 +1,113 @@
+body {
+  background: #fafafa; /* Blanco casi puro */
+  font-family: 'Amazon Ember', sans-serif; /* Fuente similar a Amazon */
+  color: #232f3e; /* Color de texto oscuro */
+}
+
+.sidebar {
+  background: #232f3e !important; /* Azul oscuro de Amazon */
+  color: #ffffff; /* Blanco para los textos de la barra lateral */
+}
+
+.sidebar-nav .nav-link {
+  color: #d5d9db; /* Gris claro para los enlaces */
+}
+
+.sidebar-nav .nav-link:hover {
+  background: #37475a !important; /* Azul grisáceo al pasar el ratón */
+}
+
+.sidebar-nav .nav-link.active {
+  background: #ff9900; /* Naranja de Amazon para el enlace activo */
+  color: #232f3e; /* Texto oscuro para el enlace activo */
+  font-weight: bold;
+}
+
+.nav-icon {
+  color: #fcfcfc !important; /* Blanco puro para los iconos */
+}
+
+.sidebar-nav .nav-link {
+  font-size: 14px; /* Tamaño de fuente más pequeño para enlaces */
+}
+
+/* Ajustes para mejorar la visualización del contenido */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para tarjetas */
+}
+
+.card-header {
+  background: #ff9900; /* Naranja Amazon */
+  color: #ffffff; /* Texto blanco */
+}
+
+.card-body {
+  color: #232f3e; /* Color de texto oscuro */
+}
+
+.btn-primary {
+  background-color: #ff9900; /* Naranja Amazon para los botones */
+  border-color: #ff9900;
+}
+
+.btn-primary:hover {
+  background-color: #e68a00; /* Naranja más oscuro para hover */
+  border-color: #e68a00;
+}
+
+.navbar {
+  background-color: #232f3e; /* Barra de navegación azul oscuro de Amazon */
+  color: #ffffff;
+}
+
+.navbar a {
+  color: #ffffff;
+}
+
+.navbar a:hover {
+  color: #ff9900; /* Naranja para los enlaces en la navbar */
+}
+
+/* Ajuste de la tabla (para representar bien los productos de Amazon) */
+.table {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.table th, .table td {
+  color: #232f3e;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9; /* Fila de la tabla con fondo gris claro */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffffff; /* Fondo blanco para las filas pares */
+}
+
+/* Ajustes adicionales para elementos como botones y formularios */
+.form-control {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #232f3e;
+}
+
+.form-control:focus {
+  border-color: #ff9900; /* Naranja para campos de formulario en foco */
+  box-shadow: 0 0 0 0.25rem rgba(255, 153, 0, 0.25);
+}
+
+.btn-outline-primary {
+  color: #ff9900;
+  border-color: #ff9900;
+}
+
+.btn-outline-primary:hover {
+  background-color: #ff9900;
+  color: #ffffff;
+  border-color: #ff9900;
+}
