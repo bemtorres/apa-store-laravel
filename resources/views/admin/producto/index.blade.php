@@ -19,7 +19,8 @@
               <th>CODIGO</th>
               <th>NOMBRE</th>
               <th>PRECIO</th>
-              {{-- <th></th> --}}
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -34,7 +35,26 @@
               <td><a href="{{ route('admin.producto.edit',$p->idi) }}">{{ $p->nombre }}</a></td>
               {{-- <td>{{ $p->nombre }}</td> --}}
               <td>$ {{ $p->getPrecio() }}</td>
-
+              <td>
+                @if ($p->activo)
+                  <span class="badge bg-success">DISPONIBLE</span
+                @else
+                  <span class="badge bg-danger">ELIMINADO</span
+                @endif
+              </td>
+              <td>
+                <form action="{{ route('admin.producto.update', $p->idi) }}" method="post" class="mb-4">
+                  @csrf
+                  @method('PUT')
+                  <input type="hidden" name="block" value="delete">
+                  <input type="hidden" name="id" value="{{ $p->idi }}">
+                  @if ($p->activo)
+                    <button type="submit" class="btn btn-danger btn-sm text-white">¿DESACTIVAR?</button>
+                  @else
+                    <button type="submit" class="btn btn-success btn-sm text-white">¿ACTIVAR?</button>
+                  @endif
+                </form>
+              </td>
             </tr>
             @endforeach
           </tbody>
