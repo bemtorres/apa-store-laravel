@@ -24,25 +24,71 @@
     <section id="productos" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nuestras tiendas</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="mb-8 text-center">
+              <input type="text" id="buscador" placeholder="Buscar tienda..." class="w-full max-w-md px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ffb85f]">
+            </div>
 
+            <!-- Contenedor dinámico -->
+            <div id="contenedor-tiendas" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+            {{-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 @foreach ($tiendas as $t)
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
                     <img src="{{ asset($t->present()->getLogo()) }}" alt="Producto 3" class="w-full h-48 object-cover group-hover:scale-110 transition-all duration-300">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-gray-800">{{ $t->nombre }}</h3>
-                        {{-- <p class="text-gray-600 mt-2">{{ $t->descripcion }}</p> --}}
                         <div class="flex justify-center items-center mt-4">
-                            {{-- <span class="text-lg font-bold text-gray-800">$50.00</span> --}}
-                            {{-- {{ $t->getColorTexto() }} --}}
-                            {{-- {{ $t->getColorFondo() }} --}}
                             <a href="{{ route('tienda.show',$t->dominio) }}" class="bg-[{{ $t->getColorFondo() }}] w-100 text-white px-2 py-2 rounded-lg text-sm">ir a la tienda</a>
                         </div>
                     </div>
                 </div>
                 @endforeach
-            </div>
+            </div> --}}
         </div>
     </section>
+    <script>
+    const tiendas = @json($tiendas->map->to_raw());
+    const contenedor = document.getElementById('contenedor-tiendas');
+    const buscador = document.getElementById('buscador');
+
+    function renderTiendas(filtro = "") {
+        contenedor.innerHTML = "";
+
+        const filtradas = tiendas.filter(t =>
+            t.nombre.toLowerCase().includes(filtro.toLowerCase())
+        );
+
+        if (filtradas.length === 0) {
+            contenedor.innerHTML = `
+                <div class="col-span-full text-center text-gray-500">
+                    No se encontraron tiendas con ese nombre.
+                </div>
+            `;
+            return;
+        }
+
+        filtradas.forEach(t => {
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-xl transition-all duration-300";
+
+            tarjeta.innerHTML = `
+                <img src="${t.logo_path}" alt="${t.nombre}" class="w-full h-48 object-cover group-hover:scale-110 transition-all duration-300">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800">${t.nombre}</h3>
+                    <div class="flex justify-center items-center mt-4">
+                        <a href="/tienda/${t.dominio}" class="bg-[${t.color}] text-white px-4 py-2 rounded-lg text-sm">ir a la tienda</a>
+                    </div>
+                </div>
+            `;
+            contenedor.appendChild(tarjeta);
+        });
+    }
+
+    buscador.addEventListener('input', (e) => {
+        renderTiendas(e.target.value);
+    });
+
+    renderTiendas();
+</script>
+
 </body>
 </html>

@@ -15,21 +15,19 @@
 </head>
 <body class="bg-gray-100">
 
-    <!-- Barra de navegación -->
-    <nav class="bg-[var(--color-principal)] p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo de la tienda -->
-            <div>
-              <img src="{{ asset($t->present()->getLogo()) }}" alt="Logo" class="h-10">
-              {{ $t->nombre }}
-            </div>
-            <ul class="flex space-x-6 text-white font-semibold">
-                <li><a href="#">Carrito</a></li>
-                <li><a href="{{ route('tienda.index') }}">Tiendas</a></li>
-                {{-- <li><a href="#contacto">Contacto</a></li> --}}
-            </ul>
-        </div>
-    </nav>
+  <nav class="bg-[var(--color-principal)] p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="{{ asset($t->present()->getLogo()) }}" alt="Logo" class="h-10">
+        <span class="text-white text-xl font-bold">{{ $t->nombre }}</span>
+      </div>
+      <ul class="flex space-x-6 text-white font-semibold">
+        <li><a href="#">Carrito</a></li>
+        <li><a href="{{ route('tienda.index') }}">Tiendas</a></li>
+      </ul>
+    </div>
+  </nav>
+
 
     <!-- Sección de productos -->
     <section id="productos" class="py-12 bg-white">
@@ -37,6 +35,7 @@
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Nuestros Productos</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             @forelse ($t->productos as $p)
+              @continue(!$p->activo)
               <div class="bg-white shadow-lg rounded-lg overflow-hidden">
                 <img src="{{ asset($p->present()->getPhoto()) }}" alt="Producto 1" class="w-full h-64 object-cover">
                 <div class="p-4">
@@ -44,7 +43,7 @@
                   <p class="text-gray-600 mt-2">{{ $p->descripcion }}</p>
                   <div class="flex justify-between items-center mt-4">
                     <span class="text-lg font-bold text-gray-800">$ {{ $p->getPrecio() }}</span>
-                    <button class="bg-[var(--color-principal)] text-white px-4 py-2 rounded-lg">Agregar al carrito</button>
+                    <a href="{{ route('tienda.producto.show', [$t->dominio, $p->codigo]) }}" class="bg-[var(--color-principal)] text-white px-4 py-2 rounded-lg">Ver</a>
                   </div>
                 </div>
               </div>

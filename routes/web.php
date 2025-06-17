@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\TiendasController;
 use App\Http\Controllers\TiendaWWWController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,11 @@ Route::middleware('auth.user')->group( function () {
 
   Route::get('admin/tienda', [TiendaController::class, 'index'])->name('admin.tienda.index');
   Route::put('admin/tienda', [TiendaController::class, 'update'])->name('admin.tienda.update');
+
+
+  Route::get('admin/tiendas', [TiendasController::class, 'index'])->name('admin.tiendas.index');
+  Route::get('admin/tiendas/{dominio}', [TiendasController::class, 'show'])->name('admin.tiendas.show');
+  Route::put('admin/tiendas/{dominio}', [TiendasController::class, 'update'])->name('admin.tiendas.update');
 
   // INTERNO
   Route::put('collapse',[HomeController::class, 'collapse'])->name('view.collapse');

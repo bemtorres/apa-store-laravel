@@ -35,6 +35,15 @@ $collapse = current_user()->getInfogSiderCollapse() ? 'hide' : '';
       </a>
     </li>
 
+    @if (current_user()->admin)
+      <li class="nav-item">
+        <a class="nav-link {{ activeTab(['admin/tiendas']) }} rounded-pill mx-3" href="{{ route('admin.tiendas.index') }}">
+          <i class="nav-icon fa-solid fa-store"></i>
+          Tiendas
+        </a>
+      </li>
+    @endif
+
     <hr>
     <li class="nav-item">
       <a class="nav-link {{ activeTab(['/']) }} rounded-pill mx-3" href="{{ route('tienda.show', current_tienda()->dominio) }}">
