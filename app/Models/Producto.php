@@ -57,6 +57,7 @@ class Producto extends Model
       'descripcion' => $this->descripcion,
       'precio' => $this->precio,
       'precio_text' => $this->getPrecio(),
+      'logo' => asset($this->present()->getPhoto()),
       'url' => route('api.services.productos.show',[$this->tienda->dominio, $this->codigo])
     ];
   }
