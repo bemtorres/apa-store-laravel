@@ -13,6 +13,21 @@ class TiendaController extends Controller
     return view('admin.tienda.index', compact('t'));
   }
 
+  public function programador() {
+    $t = current_tienda();
+    return view('admin.tienda.programador', compact('t'));
+  }
+
+  public function programadorUpdate(Request $request) {
+    $t = current_tienda();
+    $info = $t->info;
+    $info['css_styles'] = $request->input('css');
+    $info['js'] = $request->input('js');
+    $t->info = $info;
+    $t->update();
+    return back()->with('success','Se ha actualizado correctamente');
+  }
+
   public function update(Request $request) {
     $t = current_tienda();
     $block = $request->input('block');

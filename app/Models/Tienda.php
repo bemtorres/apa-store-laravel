@@ -67,6 +67,15 @@ class Tienda extends Model
     return $this->info['wsp'] ?? null;
   }
 
+
+  public function getInfoCssStyles() {
+    return $this->info['css_styles'] ?? null;
+  }
+
+  public function getInfoJs() {
+    return $this->info['js'] ?? null;
+  }
+
   public function present(){
     return new TiendaPresenter($this);
   }

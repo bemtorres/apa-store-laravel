@@ -32,6 +32,8 @@ Route::middleware('auth.user')->group( function () {
 
   Route::resource('admin/producto', ProductoController::class)->names('admin.producto');
 
+  Route::get('admin/programador', [TiendaController::class, 'programador'])->name('admin.tienda.programador');
+  Route::put('admin/programador', [TiendaController::class, 'programadorUpdate'])->name('admin.tienda.programador.udate');
   Route::get('admin/tienda', [TiendaController::class, 'index'])->name('admin.tienda.index');
   Route::put('admin/tienda', [TiendaController::class, 'update'])->name('admin.tienda.update');
 

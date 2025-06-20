@@ -6,10 +6,10 @@
 <div class="row">
   <div class="col-md-12 row text-center">
     <div class="col-md-6">
-      <div class="card text-left">
+      <div class="card">
         <img class="card-img-top" src="{{ asset('pedidos.png') }}" alt="">
         <div class="card-body px-3">
-          <h2 class="display-6 fw-bold text-success">¡Modo Pro Activado! 🚀</h2>
+          <h2 class="fw-bold text-success">¡Modo Pro Activado! 🚀</h2>
           <h5 class="card-title">Ahora puedes enviar tus compras por WhatsApp al ingresar tu número de teléfono</h5>
           <div class="col-lg-12 mx-auto">
             <p class="lead mb-4">Para empezar, ingresa tu número de teléfono y listo. ¡Disfruta de la comodidad de vender rápidamente a través de WhatsApp!</p>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-12 col-md-6">
-      <div class=" mb-3">
+      <div class="mb-3">
         <div class=" px-3">
           <h2 class="display-6 fw-bold">Hola {{ current_user()->nombre }}! 🖐️</h2>
           <h5 class="card-title">Te damos la bienvenida a <strong>{{ current_tienda()->nombre }}!</strong></h5>
@@ -68,6 +68,28 @@
           </div>
         </div> --}}
       </div>
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="card text-left bg-dark text-success border-success">
+            <div class="row g-0">
+              <!-- Imagen a la izquierda -->
+              <div class="col-md-4">
+                <img src="{{ asset('cat-crazy-cat.gif') }}" class="img-fluid rounded-start" alt="Imagen de gato loco">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h6 class="text-warning">Ahora puedes personalizar tu página web</h6>
+                  <p class="text-light mb-4">Haz que tu tienda sea única con un diseño que se adapte a tus necesidades. Personaliza tu página web y lleva tu tienda al siguiente nivel.</p>
+                  <a href="{{ route('admin.tienda.programador') }}" class="btn btn-primary text-white">
+                    Personaliza tu tienda <i class="bi bi-code-square"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
 
