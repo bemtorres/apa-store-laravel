@@ -42,7 +42,7 @@ class Tienda extends Model
 
     public function productos()
     {
-        return $this->hasMany(Producto::class, 'id_tienda');
+        return $this->hasMany(Producto::class, 'id_tienda')->orderBy('id','desc');
     }
 
   // protected function info(): Attribute {
