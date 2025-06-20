@@ -15,7 +15,7 @@
     <div class="col-md-12">
       <div class="card shadow mb-3">
         <div class="card-body">
-          <form class="form-sample form-submit" action="" method="POST" enctype="multipart/form-data">
+          <form class="form-sample form-submit" action="" method="POST" enctype="multipart/form-data" id="codeForm">
             @csrf
             @method('PUT')
             <input type="hidden" name="block" value="sistema">
@@ -28,6 +28,8 @@
                   <div class="col-sm-12">
                     <!-- Contenedor para Monaco editor de CSS -->
                     <div id="css-editor" style="height: 300px;"></div>
+                    <!-- Input oculto para enviar el contenido del CSS -->
+                    <input type="hidden" name="css" id="hidden-css">
                   </div>
                 </div>
               </div>
@@ -41,13 +43,15 @@
                   <div class="col-sm-12">
                     <!-- Contenedor para Monaco editor de JS -->
                     <div id="js-editor" style="height: 300px;"></div>
+                    <!-- Input oculto para enviar el contenido de JS -->
+                    <input type="hidden" name="js" id="hidden-js">
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="form-group d-flex justify-content-end">
-              <button type="submit" class="btn btn-primary">Guardar</button>
+              <button type="submit" class="btn btn-primary" onclick="saveCode()">Guardar</button>
             </div>
 
           </form>
@@ -80,6 +84,17 @@
       theme: 'vs-dark',
       automaticLayout: true // Habilita el redimensionamiento automático
     });
+
+    // Función para guardar el código en los campos ocultos antes de enviar el formulario
+    window.saveCode = function() {
+      // Obtener el contenido de los editores
+      var cssCode = cssEditor.getValue();
+      var jsCode = jsEditor.getValue();
+
+      // Inyectar el contenido en los campos ocultos
+      document.getElementById('hidden-css').value = cssCode;
+      document.getElementById('hidden-js').value = jsCode;
+    };
   });
 </script>
 @endpush
