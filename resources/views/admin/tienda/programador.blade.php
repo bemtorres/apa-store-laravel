@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @push('css')
-<!-- Estilos opcionales para el editor -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.css">
+<!-- Estilos opcionales para Monaco -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.37.0/min/vs/editor/editor.main.min.css">
 @endpush
 
 @section('content')
@@ -26,8 +26,8 @@
                 <div class="form-group row">
                   <label class="col-sm-12" for="css-editor">Ingresa tus estilos CSS</label>
                   <div class="col-sm-12">
-                    <!-- Contenedor para el editor de CSS -->
-                    <div id="css-editor" style="height: 300px;">{{ $t->getInfoCssStyles() }}</div>
+                    <!-- Contenedor para Monaco editor de CSS -->
+                    <div id="css-editor" style="height: 300px;"></div>
                   </div>
                 </div>
               </div>
@@ -39,8 +39,8 @@
                 <div class="form-group row">
                   <label class="col-sm-12" for="js-editor">Ingresa tu código JavaScript</label>
                   <div class="col-sm-12">
-                    <!-- Contenedor para el editor de JS -->
-                    <div id="js-editor" style="height: 300px;">{{ $t->getInfoJs() }}</div>
+                    <!-- Contenedor para Monaco editor de JS -->
+                    <div id="js-editor" style="height: 300px;"></div>
                   </div>
                 </div>
               </div>
@@ -59,17 +59,27 @@
 @endsection
 
 @push('js')
-<!-- Incluir Ace Editor -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
+<!-- Incluir Monaco Editor -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.37.0/min/vs/loader.js"></script>
 <script>
-  // Iniciar el editor de CSS
-  var cssEditor = ace.edit("css-editor");
-  cssEditor.setTheme("ace/theme/dracula");
-  cssEditor.getSession().setMode("ace/mode/css");
+  require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.37.0/min/vs' }});
 
-  // Iniciar el editor de JavaScript
-  var jsEditor = ace.edit("js-editor");
-  jsEditor.setTheme("ace/theme/dracula");
-  jsEditor.getSession().setMode("ace/mode/javascript");
+  require(['vs/editor/editor.main'], function() {
+    // Iniciar el editor de CSS
+    var cssEditor = monaco.editor.create(document.getElementById('css-editor'), {
+      value: `{{ $t->getInfoCssStyles() }}`,
+      language: 'css',
+      theme: 'vs-dark',
+      automaticLayout: true // Habilita el redimensionamiento automático
+    });
+
+    // Iniciar el editor de JavaScript
+    var jsEditor = monaco.editor.create(document.getElementById('js-editor'), {
+      value: `{{ $t->getInfoJs() }}`,
+      language: 'javascript',
+      theme: 'vs-dark',
+      automaticLayout: true // Habilita el redimensionamiento automático
+    });
+  });
 </script>
 @endpush
