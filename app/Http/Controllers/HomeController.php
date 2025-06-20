@@ -19,6 +19,14 @@ class HomeController extends Controller
     return view('home.index',compact('productos_count'));
   }
 
+  public function indexPost(Request $request) {
+    $t = current_tienda();
+
+    $productos_count = Producto::where('id_tienda', $t->id)->count();
+
+    return view('home.index',compact('productos_count'));
+  }
+
   public function perfil() {
     $u = current_user();
     $styles = Style::LIST;

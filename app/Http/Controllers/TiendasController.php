@@ -14,7 +14,7 @@ class TiendasController extends Controller
       abort(403);
     }
     // $t = current_tienda();
-    $tiendas = Tienda::get();
+    $tiendas = Tienda::with('usuario')->get();
     return view('admin.tiendas.index', compact('tiendas'));
   }
 

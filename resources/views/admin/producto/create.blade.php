@@ -21,7 +21,7 @@
                 <div class="form-group row">
                   <label class="col-sm-12" for="codigo">Codigo<small class="text-danger">*</small></label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control {{ $errors->has('codigo') ? 'is-invalid' : '' }}" name="codigo" id="codigo" value="{{ old('codigo') }}" required/>
+                    <input type="text" class="form-control {{ $errors->has('codigo') ? 'is-invalid' : '' }}" name="codigo"  maxlength="20"  id="codigo" value="{{ old('codigo') }}" placeholder="P01 , 12313, ABC011, 322AA, producto0011, qwerty123" required/>
                     {!! $errors->first('codigo', ' <small id="inputPassword" class="form-text text-danger">:message</small>') !!}
                   </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="form-group row">
                   <label class="col-sm-12" for="nombre">Nombre<small class="text-danger">*</small></label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" name="nombre" id="nombre" value="{{ old('nombre') }}" required/>
+                    <input type="text" class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" maxlength="60" name="nombre" id="nombre" value="{{ old('nombre') }}" required/>
                     {!! $errors->first('nombre', ' <small id="inputPassword" class="form-text text-danger">:message</small>') !!}
                   </div>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="form-group row">
                   <label class="col-sm-12" for="descripcion">Descripcion<small class="text-danger">*</small></label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" name="descripcion" id="descripcion" value="{{ old('descripcion') }}" required/>
+                    <input type="text" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" maxlength="200" name="descripcion" id="descripcion" value="{{ old('descripcion') }}" required/>
                     {!! $errors->first('descripcion', ' <small id="inputPassword" class="form-text text-danger">:message</small>') !!}
                   </div>
                 </div>

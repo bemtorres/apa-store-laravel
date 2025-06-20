@@ -63,9 +63,9 @@ class Tienda extends Model
   //   return $this->info['img'] ?? false;
   // }
 
-  // public function getInfoTitle() {
-  //   return $this->info['title'] ?? 'Plataforma';
-  // }
+  public function getInfoWsp() {
+    return $this->info['wsp'] ?? null;
+  }
 
   public function present(){
     return new TiendaPresenter($this);

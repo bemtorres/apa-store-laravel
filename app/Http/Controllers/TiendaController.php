@@ -15,6 +15,17 @@ class TiendaController extends Controller
 
   public function update(Request $request) {
     $t = current_tienda();
+    $block = $request->input('block');
+
+    if ($block == 'wsp') {
+      $info = $t->info;
+      $info['wsp'] = $request->input('telefono');
+      $t->info = $info;
+      $t->update();
+      session()->put('current_tienda', $t);
+      return back()->with('success','Se ha actualizado correctamente');
+    }
+
     $t->nombre = $request->input('nombre');
     $t->descripcion = $request->input('descripcion');
     $info = $t->info;

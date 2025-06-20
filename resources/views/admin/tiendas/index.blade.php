@@ -16,15 +16,19 @@
         <table class="table table-hover table-sm" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>#</th>
-              <th>DOMONIO</th>
+              <th>FECHA</th>
+              <th>DOMINIO</th>
               <th>NOMBRE</th>
+              <th>USUARIO</th>
+              <th>CORREO</th>
+              <th>WHATSAPP</th>
               <th>ESTADO</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($tiendas as $t)
             <tr>
+              <td>{{ $t->created_at->format('d/m/Y') }}</td>
               <td>
                 <div class="c-avatar">
                   <img src="{{ asset($t->present()->getLogo()) }}" class="c-avatar-img" width="100px" alt="Imagen producto">
@@ -32,6 +36,9 @@
               </td>
               <td>{{ $t->dominio }}</td>
               <td><a href="{{ route('admin.tiendas.show',$t->dominio) }}">{{ $t->nombre }}</a></td>
+              <td>{{ $t->usuario->nombre }}</td>
+              <td>{{ $t->usuario->correo }}</td>
+              <td>{{ $t->getInfoWsp() }}</td>
               <td>
                 @if ($t->activo)
                   <span class="badge bg-success">DISPONIBLE</span

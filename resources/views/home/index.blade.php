@@ -4,12 +4,23 @@
 @endsection
 @section('content')
 <div class="row">
-
-
   <div class="col-md-12 row text-center">
-    <div class="col-12 col-md-6">
-      <div class="card shadow mb-3">
+    <div class="col-md-6">
+      <div class="card text-left">
+        <img class="card-img-top" src="{{ asset('pedidos.png') }}" alt="">
         <div class="card-body px-3">
+          <h2 class="display-6 fw-bold text-success">¡Modo Pro Activado! 🚀</h2>
+          <h5 class="card-title">Ahora puedes enviar tus compras por WhatsApp al ingresar tu número de teléfono</h5>
+          <div class="col-lg-12 mx-auto">
+            <p class="lead mb-4">Para empezar, ingresa tu número de teléfono y listo. ¡Disfruta de la comodidad de vender rápidamente a través de WhatsApp!</p>
+            <a href="{{ route('admin.tienda.index') }}" class="btn btn-lg btn-success text-white text-bold">Añadir número de Whatsapp <i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class=" mb-3">
+        <div class=" px-3">
           <h2 class="display-6 fw-bold">Hola {{ current_user()->nombre }}! 🖐️</h2>
           <h5 class="card-title">Te damos la bienvenida a <strong>{{ current_tienda()->nombre }}!</strong></h5>
 
@@ -23,14 +34,28 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-md-6">
       <div class="row mb-3">
-        <div class="col-6">
+        <div class="col-6 mb-3">
           <div class="card rounded bg-primary text-white">
             <div class="card-body">
               <div class="fs-4 fw-semibold" id="count-docs"></div>
               <div><strong>Total de productos</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 mb-3">
+          <div class="card rounded bg-warning text-white">
+            <div class="card-body">
+              <div class="fs-4 fw-semibold" id="count-pedidos"></div>
+              <div><strong>Total de pedidos</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 mb-3">
+          <div class="card rounded bg-success text-white">
+            <div class="card-body">
+              <div class="fs-4 fw-semibold">$<span id="count-ventas"></span></div>
+              <div><strong>Total de ventas</strong></div>
             </div>
           </div>
         </div>
@@ -44,6 +69,8 @@
         </div> --}}
       </div>
     </div>
+
+
   </div>
 </div>
 @endsection
@@ -71,7 +98,8 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     animateValue('count-docs',{{ $productos_count }}, 1200);
-    // animateValue('count-pages',1000, 1200);
+    animateValue('count-pedidos',{{ rand(100, 4000) }}, 1200);
+    animateValue('count-ventas',{{ rand(500000, 1000000000) }}, 1200);
   });
 </script>
 @endpush

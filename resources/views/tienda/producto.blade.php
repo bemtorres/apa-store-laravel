@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tienda Online</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --color-principal: {{ $t->getColorFondo() }};
@@ -29,6 +30,17 @@
 
   <!-- Producto -->
   <main class="flex-grow py-12">
+
+    <!-- Botón de volver -->
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-3">
+        <a href="{{ route('tienda.show', $t->dominio) }}" class="bg-[var(--color-principal)] text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition">
+          <i class="bi bi-arrow-left"></i>
+          Volver a la lista de productos
+        </a>
+      </div>
+    </div>
+
     <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl grid md:grid-cols-2 gap-6 p-6">
 
       <!-- Imagen del producto -->
@@ -47,7 +59,19 @@
             <button class="bg-[var(--color-principal)] text-white px-6 py-2 rounded-lg font-medium hover:shadow-md transition">
               Agregar al carrito
             </button>
+
           </div>
+          @if ($t->getInfoWsp())
+          <section class="mt-8 text-center">
+            <p class="text-sm text-gray-700 mb-4">¿Listo para comprar? Puedes hacerlo directamente por WhatsApp:</p>
+            <a href="https://wa.me/{{ $t->getInfoWsp() }}?text=¡Hola!%20Estoy%20interesado%20en%20comprar%20el%20producto%20{{ urlencode($p->nombre) }}%20por%20favor%20envíame%20más%20información."
+              target="_blank"
+              class="bg-green-500 text-white px-8 py-3 rounded-lg text-xl font-semibold">
+              <i class="bi bi-whatsapp"></i>
+              Comprar por WhatsApp
+            </a>
+          </section>
+          @endif
         </div>
 
         <!-- Código QR -->
@@ -56,13 +80,6 @@
           <p class="text-gray-700 text-sm">Escanea con tu aplicación</p>
         </div>
       </div>
-    </div>
-
-    <!-- Botón de volver -->
-    <div class="mt-8 text-center">
-      <a href="{{ route('tienda.show', $t->dominio) }}" class="inline-block bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition">
-        ← Volver a la lista de productos
-      </a>
     </div>
   </main>
 

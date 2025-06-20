@@ -23,7 +23,7 @@ Route::post('login-admin', [AuthController::class, 'loginAdminIniciar'])->name('
 Route::middleware('auth.user')->group( function () {
   // API
   Route::get('home', [HomeController::class, 'index'])->name('home.index');
-  Route::post('home', [HomeController::class, 'indexPost'])->name('home');
+  Route::post('home', [HomeController::class, 'indexPost'])->name('home.index.post');
   // Route::get('tutoriales', [HomeController::class, 'tutorial'])->name('home.tutorial');
 
   Route::get('admin/perfil', [HomeController::class, 'perfil'])->name('admin.perfil');

@@ -121,6 +121,21 @@
     </div>
 
     <div class="col-md-7">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Nuevo de entrega de compras</h4>
+          <p class="card-text">Ingresa tu numero de whatsapp para que los clientes puedan realizar compras por whatsapp</p>
+          <form action="" method="POST" class="d-flex justify-content-center">
+            <input type="hidden" name="block" value="wsp">
+            @csrf
+            @method('PUT')
+            <div class="input-group w-50">
+              <input type="tel" class="form-control" name="telefono" maxlength="11" min="11" value="{{ current_tienda()->getInfoWsp() }}" placeholder="Ejemplo: 56912345678">
+              <button type="submit" class="btn btn-success text-white text-bold">GUARDAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
       <div class="card text-left">
         <div class="card-body">
           <h4 class="card-title">Dominios de entrega de API</h4>
