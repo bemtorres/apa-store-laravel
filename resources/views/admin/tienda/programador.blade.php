@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @push('css')
-<!-- Incluir los archivos de CodeMirror -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+<!-- Estilos opcionales para el editor -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.css">
 @endpush
 
 @section('content')
@@ -27,8 +26,8 @@
                 <div class="form-group row">
                   <label class="col-sm-12" for="css-editor">Ingresa tus estilos CSS</label>
                   <div class="col-sm-12">
-                    <!-- Contenedor para el editor CodeMirror de CSS -->
-                    <textarea id="css-editor" name="css" rows="10" class="form-control">{{ $t->getInfoCssStyles() }}</textarea>
+                    <!-- Contenedor para el editor de CSS -->
+                    <div id="css-editor" style="height: 300px;">{{ $t->getInfoCssStyles() }}</div>
                   </div>
                 </div>
               </div>
@@ -40,8 +39,8 @@
                 <div class="form-group row">
                   <label class="col-sm-12" for="js-editor">Ingresa tu código JavaScript</label>
                   <div class="col-sm-12">
-                    <!-- Contenedor para el editor CodeMirror de JavaScript -->
-                    <textarea id="js-editor" name="js" rows="10" class="form-control">{{ $t->getInfoJs() }}</textarea>
+                    <!-- Contenedor para el editor de JS -->
+                    <div id="js-editor" style="height: 300px;">{{ $t->getInfoJs() }}</div>
                   </div>
                 </div>
               </div>
@@ -60,29 +59,17 @@
 @endsection
 
 @push('js')
-<!-- Incluir los archivos JS de CodeMirror -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+<!-- Incluir Ace Editor -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js"></script>
 <script>
-  // Iniciar el editor CodeMirror para el textarea de CSS
-  const cssEditor = CodeMirror.fromTextArea(document.getElementById('css-editor'), {
-    lineNumbers: true,
-    mode: "css",
-    theme: "dracula", // Puedes elegir el tema que prefieras
-    lineWrapping: true,
-    autoCloseBrackets: true,
-    matchBrackets: true
-  });
+  // Iniciar el editor de CSS
+  var cssEditor = ace.edit("css-editor");
+  cssEditor.setTheme("ace/theme/dracula");
+  cssEditor.getSession().setMode("ace/mode/css");
 
-  // Iniciar el editor CodeMirror para el textarea de JavaScript
-  const jsEditor = CodeMirror.fromTextArea(document.getElementById('js-editor'), {
-    lineNumbers: true,
-    mode: "javascript",
-    theme: "dracula", // Puedes elegir el tema que prefieras
-    lineWrapping: true,
-    autoCloseBrackets: true,
-    matchBrackets: true
-  });
+  // Iniciar el editor de JavaScript
+  var jsEditor = ace.edit("js-editor");
+  jsEditor.setTheme("ace/theme/dracula");
+  jsEditor.getSession().setMode("ace/mode/javascript");
 </script>
 @endpush

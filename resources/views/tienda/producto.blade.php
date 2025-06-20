@@ -96,9 +96,9 @@
     </div>
   </footer>
   @if ($t->getInfoJs())
-  <style>
+  <script>
     {!! $t->getInfoJs() !!}
-  </style>
+  </script>
   @endif
   <!-- QRCode.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
