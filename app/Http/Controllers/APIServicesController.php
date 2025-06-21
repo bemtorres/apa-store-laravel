@@ -9,6 +9,24 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class APIServicesController extends Controller
 {
+
+  public function tiendas()
+  {
+    try {
+      $tiendas = Tienda::where('activo', true)->get();
+
+      return response()->json($tiendas->map->to_raw(),200);
+      // return response()->json([
+      //   'tienda'    => $tienda->nombre,
+      //   'productos' => $data,
+      // ], 200);
+    } catch (\Exception $e) {
+      return response()->json([
+        'error' => 'Error interno del servidor',
+      ], 404);
+    }
+  }
+
   public function dominio($dominio)
   {
     try {
