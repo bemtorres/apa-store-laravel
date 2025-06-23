@@ -46,36 +46,23 @@
         </div>
         <h3 class="text-center mb-4">Inicia sesión con tu cuenta</h3>
 
-        <form class="form-sample form-submit" action="{{ route('login') }}" method="POST">
+        <form class="form-sample form-submit" action="{{ route('root.recuperar.store') }}" method="POST">
           @csrf
           <div class="mb-3">
             <label for="correo" class="form-label">Correo electrónico</label>
             <input type="email" class="form-control" id="correo" name="correo" value="" required>
           </div>
-          {{-- <button class="btn btn-primary btn-lg mb-2" type="submit"><strong>Recuperar</strong></button> --}}
-
-
-
-          <div class="mb-3">
-            <div class="d-flex justify-content-between">
-              <label for="password" class="form-label">Contraseña</label>
-              <a href="{{ route('root.recuperar') }}">Recuperar contraseña</a>
-            </div>
-
-            <input type="password" class="form-control" id="password" name="password" required>
-          </div>
-
 
           <div class="d-grid">
-            <button class="btn btn-primary btn-lg" type="submit"><strong>Iniciar sesión</strong></button>
-          </div>
-          <div class="mt-3 text-center">
-
-            <a href="{{ route('root.registrar') }}">Registrar usuario</a>
+            <button class="btn btn-primary btn-lg" type="submit"><strong>Recuperar</strong></button>
           </div>
           <div class="d-grid mt-3">
             <a class="btn btn-danger btn-lg" href="{{ route('tienda.index')  }}">
               <strong>Tiendas disponibles</strong>
+            </a>
+
+            <a class="btn btn-danger btn-lg" href="{{ route('root')  }}">
+              <strong>Volver</strong>
             </a>
           </div>
         </form>

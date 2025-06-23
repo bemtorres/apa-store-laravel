@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AuthController::class, 'index'])->name('root');
 Route::get('/registrar', [AuthController::class, 'registrar'])->name('root.registrar');
 Route::post('/registrar', [AuthController::class, 'registrarStore'])->name('root.registrar.store');
+Route::get('/recuperar', [AuthController::class, 'recuperar'])->name('root.recuperar');
+Route::post('/recuperar', [AuthController::class, 'recuperarStore'])->name('root.recuperar.store');
 Route::get('login', [AuthController::class, 'index'])->name('login.index');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::any('logout', [AuthController::class, 'logout'])->name('logout');

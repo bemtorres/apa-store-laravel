@@ -7,6 +7,7 @@ use App\Models\Tienda;
 use App\Models\Usuario;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -55,6 +56,22 @@ class AuthController extends Controller
       return redirect()->route('root')->with('success','Felicidades nueva cuenta creada');
     }
     return back()->with('danger','clave no válida');
+  }
+
+  public function recuperar() {
+    return view('auth.recuperar');
+  }
+
+  public function recuperarStore(Request $request) {
+    $correo = $request->input('correo');
+    $u = Usuario::where('correo', $correo)->first();
+    if ($u) {
+      $pass = Str::random(4);
+      $u->password = hash('sha256', $pass);
+      $u->update();
+      return back()->with('success','Se ha recuperado, nueva password ' . $pass);
+    }
+    return back()->with('danger','Correo no encontrado');
   }
 
   public function login(Request $request){
